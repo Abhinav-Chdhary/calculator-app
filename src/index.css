@@ -75,7 +75,13 @@ button {
 .rstResult {
   background-color: red;
 }
+.rstInput:hover {
+  background-color: rgb(0, 138, 138);
+}
+.rstResult:hover {
+  background-color: rgb(161, 2, 2);
+}
 
 button:hover {
-  background-color: #45a05f;
+  background-color: #007722;
 }

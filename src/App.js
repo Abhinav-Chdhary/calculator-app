@@ -2,22 +2,28 @@ import React, { useState } from "react";
 
 export default function App() {
   const [total, setTotal] = useState(0);
-  const [input, setInput] = useState(0);
+  const [input, setInput] = useState("");
   const handleAddition = () => {
     setTotal(total + parseFloat(input));
-    setInput(0);
+    setInput("");
   };
   const handleSubstraction = () => {
     setTotal(total - parseFloat(input));
-    setInput(0);
+    setInput("");
   };
   const handleMultiplication = () => {
     setTotal(total * parseFloat(input));
-    setInput(0);
+    setInput("");
   };
   const handleDivision = () => {
     setTotal(total / parseFloat(input));
-    setInput(0);
+    setInput("");
+  };
+  const handleInputReset = () => {
+    setInput("");
+  };
+  const handleResultReset = () => {
+    setTotal(0);
   };
   return (
     <div>
@@ -45,10 +51,14 @@ export default function App() {
           <button onClick={handleDivision}>Divide</button>
         </li>
         <li>
-          <button className="rstInput">Reset Input</button>
+          <button onClick={handleInputReset} className="rstInput">
+            Reset Input
+          </button>
         </li>
         <li>
-          <button className="rstResult">Reset result</button>
+          <button onClick={handleResultReset} className="rstResult">
+            Reset result
+          </button>
         </li>
       </ul>
     </div>
