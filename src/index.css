@@ -1,0 +1,81 @@
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For some versions of Safari, you may need the following rule as well */
+input[type="number"] {
+  -webkit-appearance: none;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #1e2125;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  color: #1db954;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+input {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #1db954;
+  border-radius: 5px;
+  background-color: #282c34;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  margin: 10px;
+}
+
+button {
+  background-color: #1db954;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+}
+.rstInput {
+  background-color: rgb(0, 187, 187);
+}
+.rstResult {
+  background-color: red;
+}
+
+button:hover {
+  background-color: #45a05f;
+}
