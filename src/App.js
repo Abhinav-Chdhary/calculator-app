@@ -1,30 +1,26 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 export default function App() {
   const [total, setTotal] = useState(0);
   const [input, setInput] = useState("");
-  const handleAddition = () => {
-    setTotal(total + parseFloat(input));
+  const inputRef = useRef(null);
+
+  const handleOperation = (operation) => {
+    setTotal(operation(total, parseFloat(input)));
     setInput("");
+    inputRef.current.focus();
   };
-  const handleSubstraction = () => {
-    setTotal(total - parseFloat(input));
-    setInput("");
-  };
-  const handleMultiplication = () => {
-    setTotal(total * parseFloat(input));
-    setInput("");
-  };
-  const handleDivision = () => {
-    setTotal(total / parseFloat(input));
-    setInput("");
-  };
+
   const handleInputReset = () => {
     setInput("");
+    inputRef.current.focus();
   };
+
   const handleResultReset = () => {
     setTotal(0);
+    inputRef.current.focus();
   };
+
   return (
     <div>
       <h1>Calculator</h1>
@@ -36,19 +32,28 @@ export default function App() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         autoFocus
+        ref={inputRef}
       />
       <ul className="calOptions">
         <li>
-          <button onClick={handleAddition}>Add</button>
+          <button onClick={() => handleOperation((prev, curr) => prev + curr)}>
+            Add
+          </button>
         </li>
         <li>
-          <button onClick={handleSubstraction}>Subtract</button>
+          <button onClick={() => handleOperation((prev, curr) => prev - curr)}>
+            Subtract
+          </button>
         </li>
         <li>
-          <button onClick={handleMultiplication}>Multiply</button>
+          <button onClick={() => handleOperation((prev, curr) => prev * curr)}>
+            Multiply
+          </button>
         </li>
         <li>
-          <button onClick={handleDivision}>Divide</button>
+          <button onClick={() => handleOperation((prev, curr) => prev / curr)}>
+            Divide
+          </button>
         </li>
         <li>
           <button onClick={handleInputReset} className="rstInput">
@@ -57,7 +62,7 @@ export default function App() {
         </li>
         <li>
           <button onClick={handleResultReset} className="rstResult">
-            Reset result
+            Reset Result
           </button>
         </li>
       </ul>
